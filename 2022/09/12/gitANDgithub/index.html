@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>gitAndGithub | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="由于电脑里面已经有git，因此不进行额外安装 配置邮箱和用户名 远程仓库一般支持两种协议：SSH和HTTPS，SSH协议只认机器，HTTPS协议只认账号；也即为：如果使用SSH操作远程仓库的话，我们需要使用公钥和私钥对来做权限的认证，如果使用HTTPS操作远程仓库，则需要使用账号密码来做权限的认证。无论是公钥私钥对，还是账号密码，都只做权限的认证；但是远程仓库里需要记录这些提交记录是由谁来完成的；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gitAndGithub">
+<meta property="og:url" content="http://example.com/2022/09/12/gitANDgithub/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="由于电脑里面已经有git，因此不进行额外安装 配置邮箱和用户名 远程仓库一般支持两种协议：SSH和HTTPS，SSH协议只认机器，HTTPS协议只认账号；也即为：如果使用SSH操作远程仓库的话，我们需要使用公钥和私钥对来做权限的认证，如果使用HTTPS操作远程仓库，则需要使用账号密码来做权限的认证。无论是公钥私钥对，还是账号密码，都只做权限的认证；但是远程仓库里需要记录这些提交记录是由谁来完成的；">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-11T17:30:09.258Z">
+<meta property="article:modified_time" content="2022-10-21T19:22:51.312Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gitANDgithub" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/09/12/gitANDgithub/" class="article-date">
+  <time datetime="2022-09-11T17:30:09.258Z" itemprop="datePublished">2022-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gitAndGithub
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于电脑里面已经有git，因此不进行额外安装</p>
+<p><strong>配置邮箱和用户名</strong></p>
+<p>远程仓库一般支持两种协议：SSH和HTTPS，SSH协议只认机器，HTTPS协议只认账号；也即为：如果使用SSH操作远程仓库的话，我们需要使用公钥和私钥对来做权限的认证，如果使用HTTPS操作远程仓库，则需要使用账号密码来做权限的认证。无论是公钥私钥对，还是账号密码，都只做权限的认证；但是远程仓库里需要记录这些提交记录是由谁来完成的；所以我们需要给<strong>本地的git设置用户名和邮箱</strong>，用于从本地仓库向远程仓库提交记录时，在远程仓库记录下这些<strong>操作是由谁来完成</strong>的。</p>
+<p>因此此处的用户名与邮箱并不与验证身份信息有关，仅作为提交代码时的记录，告诉git是谁交的代码。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建ssh key</strong></p>
+<p>使用终端命令创建ssh key</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>-t</code> 指定密钥类型，默认为rsa，可以省略；<br><code>-C</code> 设置注释文字，比如邮箱，可以忽略。</p>
+<p>使用<code>ssh-keygen -t rsa -C &quot;email@example.com&quot; -f ~/.ssh/ssh_key_folder</code>命令可以在同一台设备上设置多个ssh-key，只需要相应设置<code>ssh_key_folder</code>即可。</p>
+<p>并且需要在config文件中，添加新内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/ssh_key_folder</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Host</code>和<code>HostName</code>填写Git服务器域名，<code>IdentityFile</code>指定私钥路径（即之前定义的路径）</p>
+<p>接着按照指示确认路径和输入密码。</p>
+<p>在<code>~/.ssh</code>路径下打开<code>id_rsa.pub</code>复制key（全部复制）。</p>
+<p><strong>将ssh key放在github上</strong></p>
+<p>在个人头像中的Settings处选择New SSH key，添加之前复制的key</p>
+<p><strong>验证链接</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><strong>Permission denied (publickey)解决方案</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-agent -s</span><br><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/12/gitANDgithub/" data-id="cl9mcuxm80001opvz5liwcb71" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/12/build_blog/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          build_blog
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/22/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/12/build_blog/">build_blog</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/12/gitANDgithub/">gitAndGithub</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
