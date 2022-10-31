@@ -5,25 +5,25 @@
   
 
   
-  <title>Hexo</title>
+  <title>build_bolg | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在此选用hexo框架 node.js博客的搭建需要node.js。登陆https:&#x2F;&#x2F;nodejs.org 官网可进行下载，推荐长期支持版。 下载完成可以查看node和npm版本（下载nodejs同时会下载npm，包管理工具） 12node -vnpm -v  我们可以通过npm下载hexo框架，不过由于本源下载过慢，我们将其改为淘宝镜像源（在npm方面，淘宝做得比较好）。不过在此之前先切换到ro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="build_bolg">
 <meta property="og:url" content="http://example.com/2022/09/12/build_blog/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="在此选用hexo框架 node.js博客的搭建需要node.js。登陆https:&#x2F;&#x2F;nodejs.org 官网可进行下载，推荐长期支持版。 下载完成可以查看node和npm版本（下载nodejs同时会下载npm，包管理工具） 12node -vnpm -v  我们可以通过npm下载hexo框架，不过由于本源下载过慢，我们将其改为淘宝镜像源（在npm方面，淘宝做得比较好）。不过在此之前先切换到ro">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/09/12/build_blog/typr_note_img/hexoInitFinished_shell.jpg">
-<meta property="og:image" content="http://example.com/2022/09/12/build_blog/typr_note_img/hexoInitFinished_finder.jpg">
-<meta property="og:image" content="http://example.com/2022/09/12/build_blog/typr_note_img/hexoServer_shell.jpg">
-<meta property="og:image" content="http://example.com/2022/09/12/build_blog/typr_note_img/hexoServer_brower.jpg">
-<meta property="og:image" content="http://example.com/2022/09/12/build_blog/typr_note_img/image-20221022030150702.png">
+<meta property="og:image" content="http://example.com/typr_note_img/hexoInitFinished_shell.jpg">
+<meta property="og:image" content="http://example.com/typr_note_img/hexoInitFinished_finder.jpg">
+<meta property="og:image" content="http://example.com/typr_note_img/hexoServer_shell.jpg">
+<meta property="og:image" content="http://example.com/typr_note_img/hexoServer_brower.jpg">
+<meta property="og:image" content="http://example.com/typr_note_img/image-20221022030150702.png">
 <meta property="article:published_time" content="2022-09-12T14:00:11.410Z">
-<meta property="article:modified_time" content="2022-10-24T07:01:58.029Z">
+<meta property="article:modified_time" content="2022-10-24T07:06:59.497Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/12/build_blog/typr_note_img/hexoInitFinished_shell.jpg">
+<meta name="twitter:image" content="http://example.com/typr_note_img/hexoInitFinished_shell.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -82,6 +82,16 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      build_bolg
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>在此选用hexo框架</p>
@@ -108,13 +118,13 @@
 <p>使用管理员权限初始化一个博客</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo hexo init</span><br></pre></td></tr></table></figure>
 
-<p><img src="./typr_note_img/hexoInitFinished_shell.jpg" alt="hexoInitFinished_finder"></p>
-<p><img src="./typr_note_img/hexoInitFinished_finder.jpg" alt="hexoInitFinished_finder"></p>
+<p><img src="/typr_note_img/hexoInitFinished_shell.jpg" alt="hexoInitFinished_finder"></p>
+<p><img src="/typr_note_img/hexoInitFinished_finder.jpg" alt="hexoInitFinished_finder"></p>
 <p>启动博客(基于原来创建的博客文件下)，得到在本地4000端口启动的网址。hexo自动为你建立了第一篇文章，标题叫”Hello World”。（其中<code>hexo s</code>是<code>hexo server</code>的缩写，为了在本地查看效果）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<p><img src="./typr_note_img/hexoServer_shell.jpg" alt="hexoServer_shell"></p>
-<p><img src="./typr_note_img/hexoServer_brower.jpg" alt="hexoServer_brower"></p>
+<p><img src="/typr_note_img/hexoServer_shell.jpg" alt="hexoServer_shell"></p>
+<p><img src="/typr_note_img/hexoServer_brower.jpg" alt="hexoServer_brower"></p>
 <h1 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h1><p>新建仓库，其中仓库命名必须是<code>githubName.github.io</code>，其中<code>githubName</code>是自己的github账户名。</p>
 <p>在上传至github上前，需要在自己blog目录下安装一个git部署的插件。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
@@ -126,12 +136,12 @@
 
 <p>其中<code>yourRepoPosion</code>是博客所在仓库地址。</p>
 <p>使用<code>hexo d</code>部署到github上，根据需求输入github账号和密码</p>
-<p><img src="./typr_note_img/image-20221022030150702.png" alt="image-20221022030150702"></p>
+<p><img src="/typr_note_img/image-20221022030150702.png" alt="image-20221022030150702"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/12/build_blog/" data-id="cl9mfm60200007zvzakqc58px" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/12/build_blog/" data-id="cl9x1f6we00004avzduep3dne" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +162,7 @@
   
     <a href="/2022/09/12/gitANDgithub/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">git and github</div>
     </a>
   
 </nav>
@@ -193,11 +203,11 @@
           </li>
         
           <li>
-            <a href="/2022/09/12/build_blog/">(no title)</a>
+            <a href="/2022/09/12/build_blog/">build_bolg</a>
           </li>
         
           <li>
-            <a href="/2022/09/12/gitANDgithub/">(no title)</a>
+            <a href="/2022/09/12/gitANDgithub/">git and github</a>
           </li>
         
       </ul>
