@@ -60,3 +60,15 @@ public class SecurityConfig {
     }
 }
 ```
+
+# 登陆功能的实现
+基本思路：写一个接口，写一个实现，写一个controller
+- Service：接口
+- ServiceImpl：接口的实现
+- Controller：业务逻辑实现
+
+登陆功能包括：
+- login
+- register
+- info
+其中login和register不需要权限即可访问
