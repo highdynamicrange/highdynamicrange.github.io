@@ -1,10 +1,10 @@
 {
-  "name": "academic-pages",
-  "version": "0.8.1.1",
-  "description": "Academic Pages Mistakes Jekyll theme npm build scripts",
+  "name": "highdynamicrange-home",
+  "version": "1.0.0",
+  "description": "highdynamicrange 的个人主页，与 HDR Lab 相连接。",
   "repository": {
     "type": "git",
-    "url": "https://github.com/academicpages/academicpages.github.io"
+    "url": "https://github.com/highdynamicrange/highdynamicrange.github.io"
   },
   "keywords": [
     "jekyll",
@@ -19,22 +19,31 @@
   "bugs": {
     "url": "https://github.com/academicpages/academicpages.github.io/issues"
   },
-  "homepage": "https://github.com/academicpages/academicpages.github.io",
+  "homepage": "https://highdynamicrange.github.io",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">=22.12.0"
   },
   "dependencies": {
     "fitvids": "^2.1.1",
     "jquery": "^3.7.1",
-    "jquery-smooth-scroll": "^2.2.0"
+    "jquery-smooth-scroll": "^2.2.0",
+    "astro": "7.3.2"
   },
   "devDependencies": {
     "onchange": "^7.1.0",
-    "uglify-js": "^3.17.4"
+    "uglify-js": "^3.17.4",
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "uglify": "uglifyjs node_modules/jquery/dist/jquery.min.js node_modules/fitvids/dist/fitvids.min.js node_modules/jquery-smooth-scroll/jquery.smooth-scroll.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js -c -m -o assets/js/main.min.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify"
-  }
+    "build:js": "npm run uglify",
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check"
+  },
+  "private": true,
+  "type": "module"
 }

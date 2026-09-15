@@ -10,7 +10,6 @@ Gemfile.lock
 
 # Ignore files created by npm
 node_modules
-package-lock.json
 
 # Ignore the vendor file at root level and bundle for alternative installation
 /vendor/
@@ -18,3 +17,9 @@ package-lock.json
 
 # Ignore folders related to IDEs
 .vscode/
+
+dist/
+.astro/
+.DS_Store
+.env
+test-results/
