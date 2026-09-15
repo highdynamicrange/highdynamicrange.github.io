@@ -1,4 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import {getCollection} from 'astro:content';
+const entries=(await getCollection('archive')).sort((a,b)=>(b.data.date?.getTime()??0)-(a.data.date?.getTime()??0));
 ---
-<Base title="早期笔记" active="/archive/"><header class="page-head"><p class="eyebrow">ARCHIVE / WHERE IT STARTED</p><h1>保留走过的路。</h1><p>早期的编程学习与项目笔记。新的 AI 实践和评测内容更新在 <a href="https://highdynamicrange.github.io/hdr-lab/notes/">HDR Lab</a>。</p></header><section class="section"><div class="topic-grid"><div><h3>Git 与版本管理</h3><p>从工具配置到日常版本管理。</p></div><div><h3>前后端联调</h3><p>Vue 与 Spring Boot 的初步实践。</p></div><div><h3>游戏项目</h3><p>从界面组件到登录流程。</p></div></div></section></Base>
+<Base title="早期笔记" active="/archive/"><header class="page-head"><p class="eyebrow">ARCHIVE / WHERE IT STARTED</p><h1>保留走过的路。</h1><p>早期的编程学习与项目笔记。新的 AI 实践和评测内容更新在 <a href="https://highdynamicrange.github.io/hdr-lab/notes/">HDR Lab</a>。</p></header><section class="section">{entries.map(entry=><a class="note-row" href={`/archive/${entry.id}/`}><span class="category">历史学习记录</span><div><h3>{entry.data.title}</h3><p>{entry.data.summary}</p></div>{entry.data.date?<time datetime={entry.data.date.toISOString()}>{entry.data.date.toISOString().slice(0,10).replaceAll('-','.')}</time>:<span class="muted" style="font-size:12px">日期未记录</span>}</a>)}</section></Base>
