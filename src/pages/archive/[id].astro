@@ -1,8 +1,77 @@
 ---
-import {getCollection,render} from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-export async function getStaticPaths(){return(await getCollection('archive')).map(entry=>({params:{id:entry.id},props:{entry}}));}
-const {entry}=Astro.props;
-const {Content,headings}=await render(entry);
+export async function getStaticPaths() {
+  return (await getCollection('archive')).map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
 ---
-<Base title={entry.data.title} description={entry.data.summary} active="/archive/"><header class="article-head"><nav class="breadcrumb" aria-label="面包屑"><a href="/">个人主页</a><span>/</span><a href="/archive/">早期笔记</a></nav><span class="badge">历史学习记录</span><h1>{entry.data.title}</h1><p>{entry.data.summary}</p><div class="article-meta">{entry.data.date?<time datetime={entry.data.date.toISOString()}>{entry.data.date.toISOString().slice(0,10)}</time>:<span>原文未记录日期</span>}<span>正文按原始记录保留</span></div></header><div class="article-layout"><article class="prose"><Content/><section class="related-links"><h2>新的实践，继续写在 HDR Lab</h2><a href="https://highdynamicrange.github.io/hdr-lab/notes/">阅读 AI 实践与评测笔记 ↗</a></section></article><aside class="article-aside"><div class="toc"><h2>文章目录</h2><ul>{headings.filter(h=>h.depth<=2).map(h=><li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></div><h2>原始记录</h2><ul><li><a href={`https://github.com/highdynamicrange/highdynamicrange.github.io/blob/master/${entry.data.source}`}>查看原文 ↗</a></li><li><a href="/archive/">← 返回早期笔记</a></li></ul></aside></div></Base>
+
+<Base
+  title={entry.data.title}
+  description={entry.data.summary}
+  active="/archive/"
+>
+  <header class="article-head">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">个人主页</a>
+      <span>/</span>
+      <a href="/archive/">早期笔记</a>
+    </nav>
+    <span class="badge">历史学习记录</span>
+    <h1>{entry.data.title}</h1>
+    <p>{entry.data.summary}</p>
+    <div class="article-meta">
+      {entry.data.date ? (
+        <time datetime={entry.data.date.toISOString()}>
+          {entry.data.date.toISOString().slice(0, 10)}
+        </time>
+      ) : (
+        <span>原文未记录日期</span>
+      )}
+      <span>正文按原始记录保留</span>
+    </div>
+  </header>
+  <div class="article-layout">
+    <article class="prose">
+      <Content />
+      <section class="related-links">
+        <h2>新的实践，继续写在 HDR Lab</h2>
+        <a href="https://highdynamicrange.github.io/hdr-lab/notes/">
+          阅读 AI 实践与评测笔记 ↗
+        </a>
+      </section>
+    </article>
+    <aside class="article-aside">
+      <div class="toc">
+        <h2>文章目录</h2>
+        <ul>
+          {headings
+            .filter((h) => h.depth <= 2)
+            .map((h) => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+        </ul>
+      </div>
+      <h2>原始记录</h2>
+      <ul>
+        <li>
+          <a
+            href={`https://github.com/highdynamicrange/highdynamicrange.github.io/blob/master/${entry.data.source}`}
+          >
+            查看原文 ↗
+          </a>
+        </li>
+        <li>
+          <a href="/archive/">← 返回早期笔记</a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</Base>

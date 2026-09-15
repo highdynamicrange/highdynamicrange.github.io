@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://highdynamicrange.github.io/sitemap.xml
+Sitemap: https://highdynamicrange.github.io/hdr-lab/sitemap.xml

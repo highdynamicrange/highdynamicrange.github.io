@@ -1,1 +1,4 @@
-{ "extends": "astro/tsconfigs/strict", "exclude": ["dist", "node_modules", "assets", "talkmap", "markdown_generator"] }
+{
+  "extends": "astro/tsconfigs/strict",
+  "exclude": ["dist", "node_modules", "assets", "talkmap", "markdown_generator"]
+}
